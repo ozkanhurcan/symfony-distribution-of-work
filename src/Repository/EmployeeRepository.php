@@ -19,6 +19,15 @@ class EmployeeRepository extends ServiceEntityRepository
         parent::__construct($registry, Employee::class);
     }
 
+    public function getUserForWorkload() {
+        $qb = $this->createQueryBuilder('e');
+        $qb->select('e.id, e.nameSurname, e.weeklyWorkLoad')
+            ->orderBy('e.weeklyWorkLoad','desc');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+
     // /**
     //  * @return Employee[] Returns an array of Employee objects
     //  */

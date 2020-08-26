@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        {% for child in form.children|filter(child => not child.rendered) %}
+            <div class="form-group">
+                {% if form_label(child) %}
+                    {{ form_label(child) }}
+                {% endif %}
+                {{ form_widget(child) }}
+            </div>
+        {% endfor %}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

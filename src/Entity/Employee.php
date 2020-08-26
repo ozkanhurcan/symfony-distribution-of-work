@@ -27,6 +27,11 @@ class Employee
      */
     private $workPerHour;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $weeklyWorkLoad;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Employee
     public function setWorkPerHour(int $workPerHour): self
     {
         $this->workPerHour = $workPerHour;
+
+        return $this;
+    }
+
+    public function getWeeklyWorkLoad(): ?int
+    {
+        return $this->weeklyWorkLoad;
+    }
+
+    public function setWeeklyWorkLoad(int $weeklyWorkLoad): self
+    {
+        $this->weeklyWorkLoad = $weeklyWorkLoad;
 
         return $this;
     }

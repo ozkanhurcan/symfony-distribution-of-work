@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    {% for week in weeklyReport %}
+        <h3>{{loop.index}}. Week</h3>
+        <table class="table">
+            <thead>
+                <th scope="col">Id</th>
+                <th scope="col">Name Surname</th>
+                <th scope="col">Works</th>
+            </thead>
+            <tbody>
+            {% for developer in week %}
+                <tr>
+                    <td>{{developer.id}}</td>
+                    <td>{{developer.nameSurname}}</td>
+                    <td>
+                        {% if developer.works is defined %}
+                            {% for work in developer.works %}
+                        (Level - {{ work.level }}) - {{work.title}}<br>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -4,6 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    works_provider_1:
+        url: 'http://www.mocky.io/v2/5d47f24c330000623fa3ebfa'
+    works_provider_2:
+        url: 'http://www.mocky.io/v2/5d47f235330000623fa3ebf7'
 
 services:
     # default configuration for services in *this* file

@@ -4,9 +4,17 @@ namespace App\Entity;
 
 use App\Repository\WorksRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass=WorksRepository::class)
+ * @Table(name="works",
+ *    uniqueConstraints={
+ *        @UniqueConstraint(name="title_unique",
+ *            columns={"title", "level", "estimated_duration"})
+ *     }
+ * )
  */
 class Works
 {
